@@ -1,6 +1,7 @@
 ---
-title: React Diff 算法!
-date: "2015-05-06T23:46:37.121Z"
+title: React Diff 算法原理
+date: "2018-12-06T23:46:37.121Z"
+description: ""
 ---
 
 当你使用React，在单一时间点你可以考虑render()函数作为创建React元素的树。在下一次状态或属性更新，render()函数将返回一个不同的React元素的树。React需要算出如何高效更新UI以匹配最新的树。
