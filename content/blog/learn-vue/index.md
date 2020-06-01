@@ -1,7 +1,8 @@
 ---
 title: vue源码学习--变化侦测
 date: "2019-04-13T14:46:37.121Z"
-tags: - vue
+tags:
+    - vue
 description: ""
 ---
 ## 变化侦测
