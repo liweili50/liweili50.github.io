@@ -1,6 +1,6 @@
 ---
 title: javaScript 数据类型
-date: "2020-06-24T013:51:33.508Z"
+date: "2020-06-24T13:51:33.508Z"
 description: "JavaScript 中有八种基本的数据类型（译注：前七种为基本数据类型，也称为原始类型，而 object 为复杂数据类型）。"
 ---
 
