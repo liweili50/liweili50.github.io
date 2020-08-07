@@ -1,24 +1,62 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Blog]]></title><description><![CDATA[A starter blog demonstrating what Gatsby can do.]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 01 Jun 2020 07:44:30 GMT</lastBuildDate><item><title><![CDATA[HTTP 协议]]></title><description><![CDATA[HTTP协议简介 HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。 HTTP是一个基于TCP/IP通信协议来传递数据（HTML…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/http/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/http/</guid><pubDate>Mon, 01 Jun 2020 06:53:33 GMT</pubDate><content:encoded>&lt;h2&gt;HTTP协议简介&lt;/h2&gt;
-&lt;p&gt;HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。&lt;/p&gt;
-&lt;p&gt;HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。&lt;/p&gt;
-&lt;p&gt;HTTP是一个属于应用层的面向对象的协议。&lt;/p&gt;
-&lt;p&gt;HTTP协议工作于客户端-服务端架构为上。浏览器作为HTTP客户端通过URL向HTTP服务端即WEB服务器发送所有请求。Web服务器根据接收到的请求后，向客户端发送响应信息。&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Blog]]></title><description><![CDATA[A starter blog demonstrating what Gatsby can do.]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 07 Aug 2020 09:54:10 GMT</lastBuildDate><item><title><![CDATA[javaScript 数据类型]]></title><description><![CDATA[JavaScript 中有八种基本的数据类型（前七种为基本数据类型，也称为原始类型，而 object 为复杂数据类型）。 number 用于任何类型的数字：整数或浮点数，在 ±253 范围内的整数。 bigint 用于任意长度的整数。 string…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/javascript-types/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/javascript-types/</guid><pubDate>Wed, 24 Jun 2020 13:51:33 GMT</pubDate><content:encoded>&lt;h2&gt;JavaScript 中有八种基本的数据类型（前七种为基本数据类型，也称为原始类型，而 object 为复杂数据类型）。&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;number 用于任何类型的数字：整数或浮点数，在 ±253 范围内的整数。&lt;/li&gt;
+&lt;li&gt;bigint 用于任意长度的整数。&lt;/li&gt;
+&lt;li&gt;string 用于字符串：一个字符串可以包含一个或多个字符，所以没有单独的单字符类型。&lt;/li&gt;
+&lt;li&gt;boolean 用于 true 和 false。&lt;/li&gt;
+&lt;li&gt;null 用于未知的值 —— 只有一个 null 值的独立类型。&lt;/li&gt;
+&lt;li&gt;undefined 用于未定义的值 —— 只有一个 undefined 值的独立类型。&lt;/li&gt;
+&lt;li&gt;symbol 用于唯一的标识符。&lt;/li&gt;
+&lt;li&gt;object 用于更复杂的数据结构。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我们可以通过 typeof 运算符查看存储在变量中的数据类型。&lt;/p&gt;
+&lt;p&gt;两种形式：typeof x 或者 typeof(x)。
+以字符串的形式返回类型名称，例如 “string”&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;    &lt;span class=&quot;token keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// &quot;undefined&quot;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// &quot;number&quot;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;10n&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// &quot;bigint&quot;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// &quot;boolean&quot;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;foo&quot;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// &quot;string&quot;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;Symbol&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// &quot;symbol&quot;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;typeof&lt;/span&gt; Math &lt;span class=&quot;token comment&quot;&gt;// &quot;object&quot;  (1)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// &quot;object&quot;  (2)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;typeof&lt;/span&gt; alert &lt;span class=&quot;token comment&quot;&gt;// &quot;function&quot;  (3)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;最后三行可能需要额外的说明：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Math 是一个提供数学运算的内建 object。此处仅作为一个 object 的示例。&lt;/li&gt;
+&lt;li&gt;typeof null 的结果是 “object”。这其实是不对的。官方也承认了这是 typeof 运算符的问题，现在只是为了兼容性而保留了下来。当然，null 不是一个 object。null 有自己的类型，它是一个特殊值。再次强调，这是 JavaScript 语言的一个错误。&lt;/li&gt;
+&lt;li&gt;typeof alert 的结果是 “function”，因为 alert 在 JavaScript 语言中是一个函数。在 JavaScript 语言中没有一个特别的 “function” 类型。函数隶属于 object 类型。但是 typeof 会对函数区分对待。这不是很正确的做法，但在实际编程中非常方便。&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[HTTP 协议]]></title><description><![CDATA[HTTP协议简介 1、HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。 2、HTTP是一个基于TCP/IP通信协议来传递数据（HTML…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/http/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/http/</guid><pubDate>Mon, 01 Jun 2020 06:53:33 GMT</pubDate><content:encoded>&lt;h2&gt;HTTP协议简介&lt;/h2&gt;
+&lt;p&gt;1、HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。&lt;/p&gt;
+&lt;p&gt;2、HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。&lt;/p&gt;
+&lt;p&gt;3、HTTP是一个属于应用层的面向对象的协议。&lt;/p&gt;
+&lt;p&gt;4、HTTP协议工作于客户端-服务端架构为上。浏览器作为HTTP客户端通过URL向HTTP服务端即WEB服务器发送所有请求。Web服务器根据接收到的请求后，向客户端发送响应信息。&lt;/p&gt;
 &lt;h2&gt;主要特点&lt;/h2&gt;
 &lt;p&gt;1、简单快速：客户向服务器请求服务时，只需传送请求方法和路径。请求方法常用的有GET、HEAD、POST。每种方法规定了客户与服务器联系的类型不同。由于HTTP协议简单，使得HTTP服务器的程序规模小，因而通信速度很快。&lt;/p&gt;
 &lt;p&gt;2、灵活：HTTP允许传输任意类型的数据对象。正在传输的类型由Content-Type加以标记。&lt;/p&gt;
-&lt;p&gt;3.无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。&lt;/p&gt;
-&lt;p&gt;4.无状态：HTTP协议是无状态协议。&lt;/p&gt;
+&lt;p&gt;3、无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。&lt;/p&gt;
+&lt;p&gt;4、无状态：HTTP协议是无状态协议。&lt;/p&gt;
 &lt;p&gt;5、支持B/S及C/S模式。&lt;/p&gt;
 &lt;h2&gt;HTTP之URL&lt;/h2&gt;
 &lt;p&gt;HTTP使用统一资源标识符（Uniform Resource Identifiers, URI）来传输数据和建立连接。
 URL,全称是UniformResourceLocator, 是一种特殊类型的URI，包含了用于查找某个资源的足够的信息。一个完整的url包含以下几个部分：&lt;/p&gt;
-&lt;p&gt;1.协议部分：该URL的协议部分为“http：”，这代表网页使用的是HTTP协议。在Internet中可以使用多种协议，如HTTP，FTP等等本例中使用的是HTTP协议。在”HTTP”后面的“//”为分隔符&lt;/p&gt;
-&lt;p&gt;2.域名部分：一个URL中，也可以使用IP地址作为域名使用&lt;/p&gt;
-&lt;p&gt;3.端口部分：跟在域名后面的是端口，域名和端口之间使用“:”作为分隔符。端口不是一个URL必须的部分，如果省略端口部分，将采用默认端口&lt;/p&gt;
-&lt;p&gt;4.虚拟目录部分：从域名后的第一个“/”开始到最后一个“/”为止，是虚拟目录部分。虚拟目录也不是一个URL必须的部分。&lt;/p&gt;
-&lt;p&gt;5.文件名部分：从域名后的最后一个“/”开始到“？”为止，是文件名部分，如果没有“?”,则是从域名后的最后一个“/”开始到“#”为止，是文件部分，如果没有“？”和“#”，那么从域名后的最后一个“/”开始到结束，都是文件名部分。文件名部分也不是一个URL必须的部分，如果省略该部分，则使用默认的文件名&lt;/p&gt;
-&lt;p&gt;6.锚部分：从“#”开始到最后，都是锚部分。锚部分也不是一个URL必须的部分&lt;/p&gt;
-&lt;p&gt;7.参数部分：从“？”开始到“#”为止之间的部分为参数部分，又称搜索部分、查询部分。参数可以允许有多个参数，参数与参数之间用“&amp;#x26;”作为分隔符。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;协议部分：该URL的协议部分为“http：”，这代表网页使用的是HTTP协议。在Internet中可以使用多种协议，如HTTP，FTP等等本例中使用的是HTTP协议。在”HTTP”后面的“//”为分隔符&lt;/li&gt;
+&lt;li&gt;域名部分：一个URL中，也可以使用IP地址作为域名使用&lt;/li&gt;
+&lt;li&gt;端口部分：跟在域名后面的是端口，域名和端口之间使用“:”作为分隔符。端口不是一个URL必须的部分，如果省略端口部分，将采用默认端口&lt;/li&gt;
+&lt;li&gt;虚拟目录部分：从域名后的第一个“/”开始到最后一个“/”为止，是虚拟目录部分。虚拟目录也不是一个URL必须的部分。&lt;/li&gt;
+&lt;li&gt;文件名部分：从域名后的最后一个“/”开始到“？”为止，是文件名部分，如果没有“?”,则是从域名后的最后一个“/”开始到“#”为止，是文件部分，如果没有“？”和“#”，那么从域名后的最后一个“/”开始到结束，都是文件名部分。文件名部分也不是一个URL必须的部分，如果省略该部分，则使用默认的文件名&lt;/li&gt;
+&lt;li&gt;锚部分：从“#”开始到最后，都是锚部分。锚部分也不是一个URL必须的部分&lt;/li&gt;
+&lt;li&gt;参数部分：从“？”开始到“#”为止之间的部分为参数部分，又称搜索部分、查询部分。参数可以允许有多个参数，参数与参数之间用“&amp;#x26;”作为分隔符。&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h2&gt;HTTP之请求消息Request&lt;/h2&gt;
 &lt;p&gt;客户端发送一个HTTP请求到服务器的请求消息包括以下格式：&lt;/p&gt;
 &lt;p&gt;请求行（request line）、请求头部（header）、空行和请求数据四个部分组成。
@@ -57,36 +95,44 @@ MIME type还可以在尾部使用分号，添加参数&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    Accept: */*&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;HTTP之状态码&lt;/h2&gt;
 &lt;p&gt;状态代码有三位数字组成，第一个数字定义了响应的类别，共分五种类别:&lt;/p&gt;
-&lt;p&gt;1xx：指示信息—表示请求已接收，继续处理
-2xx：成功—表示请求已被成功接收、理解、接受
-3xx：重定向—要完成请求必须进行更进一步的操作
-4xx：客户端错误—请求有语法错误或请求无法实现
-5xx：服务器端错误—服务器未能实现合法的请求&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1xx：指示信息—表示请求已接收，继续处理&lt;/li&gt;
+&lt;li&gt;2xx：成功—表示请求已被成功接收、理解、接受&lt;/li&gt;
+&lt;li&gt;3xx：重定向—要完成请求必须进行更进一步的操作&lt;/li&gt;
+&lt;li&gt;4xx：客户端错误—请求有语法错误或请求无法实现&lt;/li&gt;
+&lt;li&gt;5xx：服务器端错误—服务器未能实现合法的请求&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2&gt;HTTP工作原理&lt;/h2&gt;
 &lt;p&gt;HTTP协议定义Web客户端如何从Web服务器请求Web页面，以及服务器如何把Web页面传送给客户端。HTTP协议采用了请求/响应模型。客户端向服务器发送一个请求报文，请求报文包含请求的方法、URL、协议版本、请求头部和请求数据。服务器以一个状态行作为响应，响应的内容包括协议的版本、成功或者错误代码、服务器信息、响应头部和响应数据。&lt;/p&gt;
 &lt;p&gt;以下是 HTTP 请求/响应的步骤：&lt;/p&gt;
-&lt;p&gt;1、客户端连接到Web服务器
-一个HTTP客户端，通常是浏览器，与Web服务器的HTTP端口（默认为80）建立一个TCP套接字连接。例如，&lt;a href=&quot;http://www.oakcms.cn%E3%80%82&quot;&gt;http://www.oakcms.cn。&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;2、发送HTTP请求
-通过TCP套接字，客户端向Web服务器发送一个文本的请求报文，一个请求报文由请求行、请求头部、空行和请求数据4部分组成。&lt;/p&gt;
-&lt;p&gt;3、服务器接受请求并返回HTTP响应
-Web服务器解析请求，定位请求资源。服务器将资源复本写到TCP套接字，由客户端读取。一个响应由状态行、响应头部、空行和响应数据4部分组成。&lt;/p&gt;
-&lt;p&gt;4、释放连接TCP连接
-若connection 模式为close，则服务器主动关闭TCP连接，客户端被动关闭连接，释放TCP连接;若connection 模式为keepalive，则该连接会保持一段时间，在该时间内可以继续接收请求;&lt;/p&gt;
-&lt;p&gt;5、客户端浏览器解析HTML内容
-客户端浏览器首先解析状态行，查看表明请求是否成功的状态代码。然后解析每一个响应头，响应头告知以下为若干字节的HTML文档和文档的字符集。客户端浏览器读取响应数据HTML，根据HTML的语法对其进行格式化，并在浏览器窗口中显示。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;客户端连接到Web服务器
+一个HTTP客户端，通常是浏览器，与Web服务器的HTTP端口（默认为80）建立一个TCP套接字连接。例如，&lt;a href=&quot;http://www.oakcms.cn%E3%80%82&quot;&gt;http://www.oakcms.cn。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发送HTTP请求
+通过TCP套接字，客户端向Web服务器发送一个文本的请求报文，一个请求报文由请求行、请求头部、空行和请求数据4部分组成。&lt;/li&gt;
+&lt;li&gt;服务器接受请求并返回HTTP响应
+Web服务器解析请求，定位请求资源。服务器将资源复本写到TCP套接字，由客户端读取。一个响应由状态行、响应头部、空行和响应数据4部分组成。&lt;/li&gt;
+&lt;li&gt;释放连接TCP连接
+若connection 模式为close，则服务器主动关闭TCP连接，客户端被动关闭连接，释放TCP连接;若connection 模式为keepalive，则该连接会保持一段时间，在该时间内可以继续接收请求;&lt;/li&gt;
+&lt;li&gt;客户端浏览器解析HTML内容
+客户端浏览器首先解析状态行，查看表明请求是否成功的状态代码。然后解析每一个响应头，响应头告知以下为若干字节的HTML文档和文档的字符集。客户端浏览器读取响应数据HTML，根据HTML的语法对其进行格式化，并在浏览器窗口中显示。&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;例如：在浏览器地址栏键入URL，按下回车之后会经历以下流程：&lt;/p&gt;
-&lt;p&gt;1、浏览器向 DNS 服务器请求解析该 URL 中的域名所对应的 IP 地址;&lt;/p&gt;
-&lt;p&gt;2、解析出 IP 地址后，根据该 IP 地址和默认端口 80，和服务器建立TCP连接;&lt;/p&gt;
-&lt;p&gt;3、浏览器发出读取文件(URL 中域名后面部分对应的文件)的HTTP 请求，该请求报文作为 TCP 三次握手的第三个报文的数据发送给服务器;&lt;/p&gt;
-&lt;p&gt;4、服务器对浏览器请求作出响应，并把对应的 html 文本发送给浏览器;&lt;/p&gt;
-&lt;p&gt;5、释放 TCP连接;&lt;/p&gt;
-&lt;p&gt;6、浏览器将该 html 文本并显示内容; &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;浏览器向 DNS 服务器请求解析该 URL 中的域名所对应的 IP 地址;&lt;/li&gt;
+&lt;li&gt;解析出 IP 地址后，根据该 IP 地址和默认端口 80，和服务器建立TCP连接;&lt;/li&gt;
+&lt;li&gt;浏览器发出读取文件(URL 中域名后面部分对应的文件)的HTTP 请求，该请求报文作为 TCP 三次握手的第三个报文的数据发送给服务器;&lt;/li&gt;
+&lt;li&gt;服务器对浏览器请求作出响应，并把对应的 html 文本发送给浏览器;&lt;/li&gt;
+&lt;li&gt;释放 TCP连接;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;浏览器将该 html 文本并显示内容; &lt;/p&gt;
 &lt;h2&gt;GET和POST请求的区别&lt;/h2&gt;
-&lt;p&gt;GET提交的数据会放在URL之后，以?分割URL和传输数据，参数之间以&amp;#x26;相连，如EditPosts.aspx?name=test1&amp;#x26;id=123456. POST方法是把提交的数据放在HTTP包的Body中.&lt;/p&gt;
-&lt;p&gt;GET提交的数据大小有限制（因为浏览器对URL的长度有限制），而POST方法提交的数据没有限制.&lt;/p&gt;
-&lt;p&gt;GET方式需要使用Request.QueryString来取得变量的值，而POST方式通过Request.Form来获取变量的值。&lt;/p&gt;
-&lt;p&gt;GET方式提交数据，会带来安全问题，比如一个登录页面，通过GET方式提交数据时，用户名和密码将出现在URL上，如果页面可以被缓存或者其他人可以访问这台机器，就可以从历史记录获得该用户的账号和密码.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[vue源码学习--变化侦测]]></title><description><![CDATA[变化侦测 首先，我们定义一个数据对象car： 接下来，我们使用Object.defineProperty()改写上面的例子： 通过Object.defineProperty()方法给car定义了一个price属性，并把这个属性的读和写分别使用get()和set…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/learn-vue/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/learn-vue/</guid><pubDate>Sat, 13 Apr 2019 14:46:37 GMT</pubDate><content:encoded>&lt;h2&gt;变化侦测&lt;/h2&gt;
+&lt;/li&gt;
+&lt;li&gt;GET提交的数据会放在URL之后，以?分割URL和传输数据，参数之间以&amp;#x26;相连，如EditPosts.aspx?name=test1&amp;#x26;id=123456. POST方法是把提交的数据放在HTTP包的Body中.&lt;/li&gt;
+&lt;li&gt;GET提交的数据大小有限制（因为浏览器对URL的长度有限制），而POST方法提交的数据没有限制.&lt;/li&gt;
+&lt;li&gt;GET方式需要使用Request.QueryString来取得变量的值，而POST方式通过Request.Form来获取变量的值。&lt;/li&gt;
+&lt;li&gt;GET方式提交数据，会带来安全问题，比如一个登录页面，通过GET方式提交数据时，用户名和密码将出现在URL上，如果页面可以被缓存或者其他人可以访问这台机器，就可以从历史记录获得该用户的账号和密码.&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[vue源码学习--变化侦测]]></title><description><![CDATA[变化侦测 首先，我们定义一个数据对象car： 接下来，我们使用Object.defineProperty()改写上面的例子： 通过Object.defineProperty()方法给car定义了一个price属性，并把这个属性的读和写分别使用get()和set…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/learn-vue/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/learn-vue/</guid><pubDate>Mon, 13 Apr 2020 14:46:37 GMT</pubDate><content:encoded>&lt;h2&gt;变化侦测&lt;/h2&gt;
 &lt;p&gt;首先，我们定义一个数据对象car：&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; car &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;token string&quot;&gt;&apos;brand&apos;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;BMW&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
