@@ -4,7 +4,7 @@ date: "2020-06-24T013:51:33.508Z"
 description: "JavaScript 中有八种基本的数据类型（译注：前七种为基本数据类型，也称为原始类型，而 object 为复杂数据类型）。"
 ---
 
-## JavaScript 中有八种基本的数据类型（译注：前七种为基本数据类型，也称为原始类型，而 object 为复杂数据类型）。
+## JavaScript 中有八种基本的数据类型（前七种为基本数据类型，也称为原始类型，而 object 为复杂数据类型）。
 
 * number 用于任何类型的数字：整数或浮点数，在 ±253 范围内的整数。
 * bigint 用于任意长度的整数。
@@ -40,6 +40,6 @@ description: "JavaScript 中有八种基本的数据类型（译注：前七种�
 ```
 最后三行可能需要额外的说明：
 
-1. Math 是一个提供数学运算的内建 object。我们会在 数字类型 一节中学习它。此处仅作为一个 object 的示例。
+1. Math 是一个提供数学运算的内建 object。此处仅作为一个 object 的示例。
 2. typeof null 的结果是 "object"。这其实是不对的。官方也承认了这是 typeof 运算符的问题，现在只是为了兼容性而保留了下来。当然，null 不是一个 object。null 有自己的类型，它是一个特殊值。再次强调，这是 JavaScript 语言的一个错误。
-3. typeof alert 的结果是 "function"，因为 alert 在 JavaScript 语言中是一个函数。我们会在下一章学习函数，那时我们会了解到，在 JavaScript 语言中没有一个特别的 “function” 类型。函数隶属于 object 类型。但是 typeof 会对函数区分对待。这不是很正确的做法，但在实际编程中非常方便。
+3. typeof alert 的结果是 "function"，因为 alert 在 JavaScript 语言中是一个函数。在 JavaScript 语言中没有一个特别的 “function” 类型。函数隶属于 object 类型。但是 typeof 会对函数区分对待。这不是很正确的做法，但在实际编程中非常方便。
