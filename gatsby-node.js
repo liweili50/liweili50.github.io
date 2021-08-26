@@ -28,7 +28,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               tags
               title
             }
-            html
           }
         }
       }
