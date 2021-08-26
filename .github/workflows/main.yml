@@ -24,12 +24,6 @@ jobs:
       - name: log the WEBHOOK_URL
         run: echo ${{ secrets.WEBHOOK_URL }}
 
-      - name: Send data to webhook url
-        uses: jasongitmail/fast-webhook@v1
-        with:
-        url: ${{ secrets.WEBHOOK_URL }}
-        json: '{"foo": "bar"}'
-
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
