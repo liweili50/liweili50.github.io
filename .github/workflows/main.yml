@@ -12,6 +12,15 @@ jobs:
           npm install
           npm run build
 
+      - name: Read json data from json file
+        uses: loveloper44/render-json-action@v2.0.2
+        id: render
+        with:
+          json: ./public/gatsby-posts.json
+
+      - name: Get the output
+        run: echo "${{ steps.render.outputs.result }}"
+
       - name: Send data to webhook url
         uses: jasongitmail/fast-webhook@v1
         with:
