@@ -22,12 +22,12 @@ jobs:
         run: echo "${{ steps.render.outputs.result }}"
 
       - name: log the WEBHOOK_URL
-        run: echo ${{ WEBHOOK_URL }}
+        run: echo ${{ secrets.WEBHOOK_URL }}
 
       - name: Send data to webhook url
         uses: jasongitmail/fast-webhook@v1
         with:
-        url: ${{ WEBHOOK_URL }}
+        url: ${{ secrets.WEBHOOK_URL }}
         json: '{"foo": "bar"}'
 
       - name: Deploy 🚀
@@ -35,3 +35,4 @@ jobs:
         with:
           branch: gh-pages # The branch the action should deploy to.
           folder: public # The folder the action should deploy.
+
