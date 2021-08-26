@@ -12,6 +12,13 @@ jobs:
           npm install
           npm run build
 
+      - name: Send data to webhook url
+        uses: jasongitmail/fast-webhook@v1
+        with:
+        url: ${{ secrets.WEBHOOK_URL }}
+        json: '{"foo": "bar"}'
+        run: echo ${{ secrets.WEBHOOK_URL }}
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
