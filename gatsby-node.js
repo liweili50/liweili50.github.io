@@ -21,6 +21,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             fields {
               slug
             }
+            excerpt(format: PLAIN)
+            frontmatter {
+              date
+              description
+              tags
+              title
+            }
+            html
           }
         }
       }
@@ -36,6 +44,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   const posts = result.data.allMarkdownRemark.nodes
+
+  fs.writeFile('./public/gatsby-posts.json',JSON.stringify(posts),()=>{console.info('write out posts json ')})
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
   // `context` is available in the template as a prop and as a variable in GraphQL
