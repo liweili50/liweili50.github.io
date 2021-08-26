@@ -12,17 +12,20 @@ jobs:
           npm install
           npm run build
 
-      - name: Read json data from json file
-        uses: loveloper44/render-json-action@v2.0.2
-        id: render
+      - name: JSON to variables
+        uses: antifree/json-to-variables@v1.0.1
         with:
-          json: ./public/gatsby-posts.json
+          filename: './public/gatsby-posts.json'
+          prefix: test
+          
+      - name: Show output
+        run: echo "The time was ${{ env.test_value }}, ${{ env.test_array_0_value }}, ${{ env.test_obj_value1 }}"
 
-      - name: Get the output
-        run: echo "${{ steps.render.outputs.result }}"
-
-      - name: log the WEBHOOK_URL
-        run: echo ${{ secrets.WEBHOOK_URL }}
+      - name: Send data to webhook url
+        uses: jasongitmail/fast-webhook@v1
+        with:
+          url: ${{ secrets.WEBHOOK_URL }}
+          json: '{"foo": "bar"}'
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
