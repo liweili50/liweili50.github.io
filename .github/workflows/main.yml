@@ -12,20 +12,17 @@ jobs:
           npm install
           npm run build
 
-      - name: Read package.json
+      - name: Read json file
         id: package
         uses: juliangruber/read-file-action@v1
         with:
           path: ./public/gatsby-posts.json
-          
-      - name: Echo package.json
-        run: echo "${{ steps.package.outputs.content }}"
 
-      - name: Send data to webhook url
+      - name: Send json data 
         uses: jasongitmail/fast-webhook@v1
         with:
           url: ${{ secrets.WEBHOOK_URL }}
-          json: '{"foo": "bar"}'
+          json: ${{ steps.package.outputs.content }}
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
