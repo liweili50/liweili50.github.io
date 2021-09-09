@@ -32,8 +32,8 @@ jobs:
           body: |
             {
               "modified":"${{ steps.file_changes.outputs.files_modified }}",
-              "added": "${{ steps.file_changes.outputs.files_added}}"
-              "removed": "${{ steps.file_changes.outputs.files_removed}}"
+              "added": "${{ steps.file_changes.outputs.files_added}}",
+              "removed": "${{ steps.file_changes.outputs.files_removed}}",
               "posts":"${{ steps.package.outputs.content }}"
             }
 
