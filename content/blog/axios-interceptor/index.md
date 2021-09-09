@@ -3,7 +3,7 @@ title: Axios 中拦截器的实现
 date: "2020-06-01T06:53:33.508Z"
 description: "在 Axios 中拦截器是非常有用的一个功能，可以让我们实现请求前对 config 参数进行调整以及响应后的数据处理"
 tags:
-    - axios
+  - axios
 ---
 
 在 Axios 中拦截器是非常有用的一个功能，可以让我们实现请求前对 config 参数进行调整以及响应后的数据处理。
@@ -25,7 +25,7 @@ class InterceptorManager {
     // 拦截器包含resolved和rejected两个函数
     let interceptor = {
       resolved,
-      rejected
+      rejected,
     }
     this.interceptors.push(interceptor)
     return this.interceptors.length - 1
@@ -49,7 +49,7 @@ class Axios {
   constructor() {
     this.interceptors = {
       request: new InterceptorManager(),
-      response: new InterceptorManager()
+      response: new InterceptorManager(),
     }
   }
   request(config) {
@@ -59,7 +59,7 @@ class Axios {
 //拦截器的使用
 const axios = new Axios()
 axios.interceptors.request.use(config => {
-  config.header.Token = 'string'
+  config.header.Token = "string"
   return config
 })
 
@@ -81,7 +81,7 @@ class InterceptorManager {
     // 拦截器包含resolved和rejected两个函数
     let interceptor = {
       resolved,
-      rejected
+      rejected,
     }
     this.interceptors.push(interceptor)
     return this.interceptors.length - 1
@@ -110,21 +110,21 @@ class Axios {
   constructor() {
     this.interceptors = {
       request: new InterceptorManager(),
-      response: new InterceptorManager()
+      response: new InterceptorManager(),
     }
   }
   // 模拟一个xhr请求，log此时的config，返回带有response的Promise对象
-  xhr(config){
+  xhr(config) {
     console.log(config)
-    return  Promise.resolve({code:200,data:'test'})
+    return Promise.resolve({ code: 200, data: "test" })
   }
   request(config) {
     //创建一个新数据组按顺序存放拦截器和请求方法
-   const chain = [
+    const chain = [
       {
         resolved: this.xhr,
-        rejected: undefined
-      }
+        rejected: undefined,
+      },
     ]
     //请求拦截器放在请求调用之前
     this.interceptors.request.forEach(interceptor => {
@@ -145,10 +145,11 @@ class Axios {
   }
 }
 ```
-这样整个Axios的拦截器功能就实现了，通过对chain数组的遍历完成链式调用，而且在执行到xhr请求时把参数从config换成了response，这样响应拦截器的参数就变成了response。
 
+这样整个 Axios 的拦截器功能就实现了，通过对 chain 数组的遍历完成链式调用，而且在执行到 xhr 请求时把参数从 config 换成了 response，这样响应拦截器的参数就变成了 response。
 
 完整代码如下：
+
 ```javascript
 class InterceptorManager {
   constructor() {
@@ -159,7 +160,7 @@ class InterceptorManager {
     // 拦截器包含resolved和rejected两个函数
     let interceptor = {
       resolved,
-      rejected
+      rejected,
     }
     this.interceptors.push(interceptor)
     return this.interceptors.length - 1
@@ -184,20 +185,20 @@ class Axios {
   constructor() {
     this.interceptors = {
       request: new InterceptorManager(),
-      response: new InterceptorManager()
+      response: new InterceptorManager(),
     }
   }
   xhr(config) {
     console.log(config)
-    return Promise.resolve({ code: 200, data: 'test' })
+    return Promise.resolve({ code: 200, data: "test" })
   }
   request(config) {
     //创建一个新数据组按顺序存放拦截器和请求方法
     const chain = [
       {
         resolved: this.xhr,
-        rejected: undefined
-      }
+        rejected: undefined,
+      },
     ]
     //请求拦截器放在请求调用之前
     this.interceptors.request.forEach(interceptor => {
@@ -222,20 +223,20 @@ const axios = new Axios()
 
 //为config的headers属性添加Token字段
 axios.interceptors.request.use(config => {
-  config.headers.Token = 'string'
+  config.headers.Token = "string"
   return config
 })
 
 //为返回值添加一个msg属性
 axios.interceptors.response.use(response => {
-  response.msg = 'success'
+  response.msg = "success"
   return response
 })
 
 axios
   .request({
-    url: '/api',
-    headers: {}
+    url: "/api",
+    headers: {},
   })
   .then(res => {
     console.log(res)
@@ -243,5 +244,4 @@ axios
 
 // config: { url: '/api', headers: { Token: 'string' } }
 // reponse: { code: 200, data: 'test', msg: 'success' }
-
 ```
