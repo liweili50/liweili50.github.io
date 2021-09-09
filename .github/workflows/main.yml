@@ -18,11 +18,22 @@ jobs:
         with:
           path: ./public/gatsby-posts.json
 
-      - name: Send json data 
-        uses: jasongitmail/fast-webhook@v1
+      - name: Get commit changes
+        id: file_changes
+        uses: trilom/file-changes-action@v1.2.3
+
+      - name: Make a HTTP Request
+        uses: actionsflow/axios@v1
         with:
           url: ${{ secrets.WEBHOOK_URL }}
-          json: ${{ steps.package.outputs.content }}
+          method: POST
+          body: |
+            {
+              "modified":"${{ steps.file_changes.outputs.files_modified }}",
+              "added": "${{ steps.file_changes.outputs.files_added}}"
+              "removed": "${{ steps.file_changes.outputs.files_removed}}"
+              "posts":"${{ steps.package.outputs.content }}"
+            }
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
