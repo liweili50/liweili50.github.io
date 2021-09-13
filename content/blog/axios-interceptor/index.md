@@ -1,6 +1,6 @@
 ---
 title: Axios 中拦截器的实现
-date: "2020-06-01T06:53:33.508Z"
+date: "2021-08-20"
 description: "在 Axios 中拦截器是非常有用的一个功能，可以让我们实现请求前对 config 参数进行调整以及响应后的数据处理"
 tags:
   - axios
