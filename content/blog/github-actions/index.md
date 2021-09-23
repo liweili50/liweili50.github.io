@@ -1,10 +1,10 @@
 ---
-title: Github Actions 使用
-date: "2021-09-10"
+title: Github Actions的使用
+date: "2021-09-10 16:52"
 description: "最近重新鼓捣 Gatsby Blog，翻看它了文档，发现了它支持多种数据来源。虽然我是采用markdown编写，处理成本地数据再利用GraphQL查询，这就利用了Gatsby提供的hooks，刚好在这里可以让我用来把数据提交到数据库。"
 ---
 
-最近重新鼓捣 Gatsby Blog，翻看它了文档，发现了它支持多种数据来源。虽然我是采用markdown编写，处理成本地数据再利用GraphQL查询，这就利用了Gatsby提供的hooks，刚好在这里可以让我用来把数据提交到数据库。
+最近重新鼓捣 Gatsby Blog，认真翻看它了文档，发现用markdown本地文件只是其中一种数据来源方式，它还支持CMS、数据库或者其他第三方数据。用markdown编写发布文章是通过处理成本地数据再利用GraphQL查询，然后利用Gatsby提供的hooks自定义UI组件，而我刚好也可以在这个过程里把处理好的数据完成备份。
 
 > A core feature of Gatsby is its ability to load data from anywhere -- CMSs, Markdown, other third-party systems, even spreadsheets. This allows teams to manage their content in nearly any backend they prefer.
 
