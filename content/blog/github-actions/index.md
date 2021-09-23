@@ -1,6 +1,9 @@
 ---
 title: Github Actions的使用
 date: "2021-09-10 16:52:00"
+tags:
+  - Gatsby
+  - github
 description: "最近重新鼓捣 Gatsby Blog，翻看它了文档，发现了它支持多种数据来源。虽然我是采用markdown编写，处理成本地数据再利用GraphQL查询，这就利用了Gatsby提供的hooks，刚好在这里可以让我用来把数据提交到数据库。"
 ---
 
