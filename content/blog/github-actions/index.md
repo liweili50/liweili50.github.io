@@ -1,6 +1,6 @@
 ---
 title: Github Actions的使用
-date: "2021-09-10 16:52"
+date: "2021-09-10 16:52:00"
 description: "最近重新鼓捣 Gatsby Blog，翻看它了文档，发现了它支持多种数据来源。虽然我是采用markdown编写，处理成本地数据再利用GraphQL查询，这就利用了Gatsby提供的hooks，刚好在这里可以让我用来把数据提交到数据库。"
 ---
 
@@ -12,7 +12,7 @@ description: "最近重新鼓捣 Gatsby Blog，翻看它了文档，发现了它
 
 具体做法通过 gatsby-source-filesystem 来处理文件数据，构建时在gatsby-node.js里生成所需的json文件，然后读取json发送给服务器。
 
-##### 首先第一步是读取json数据，输出结果为 package.outputs.content
+#### 首先第一步是读取json数据，输出结果为 package.outputs.content
 
 ```yml
     - name: Read json file
@@ -22,7 +22,7 @@ description: "最近重新鼓捣 Gatsby Blog，翻看它了文档，发现了它
           path: ./public/gatsby-posts.json
 ```
 
-##### 其次是获取此次数据变更的内容,得到的结果为file_changes.outputs:{files_modified,files_added,files_removed}
+#### 其次是获取此次数据变更的内容,得到的结果为file_changes.outputs:{files_modified,files_added,files_removed}
 
 ```yml
       - name: Get commit changes
@@ -31,7 +31,7 @@ description: "最近重新鼓捣 Gatsby Blog，翻看它了文档，发现了它
         with:
           githubRepo: liweili50/liweili50.github.io
 ```
-##### 最终就是把数据发送到指定的服务器接口
+#### 最终就是把数据发送到指定的服务器接口
 
 ```yml
       - name: Make a HTTP Request
