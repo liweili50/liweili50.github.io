@@ -7,19 +7,19 @@
 </blockquote>
 <p>之前的数据备份是通过GitHub webhooks来做的，但是通过Github Api获取的数据有限而且麻烦。而且项目本身就要使用Github Actions在push事件触发后来构建项目并发布到Github Pages，所以想在构建的过程中读取项目里的数据然后发送到指定的接口。</p>
 <p>具体做法通过 gatsby-source-filesystem 来处理文件数据，构建时在gatsby-node.js里生成所需的json文件，然后读取json发送给服务器。</p>
-<h5>首先第一步是读取json数据，输出结果为 package.outputs.content</h5>
+<h4>首先第一步是读取json数据，输出结果为 package.outputs.content</h4>
 <div class="gatsby-highlight" data-language="yml"><pre class="language-yml"><code class="language-yml">    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Read json file
         <span class="token key atrule">id</span><span class="token punctuation">:</span> package
         <span class="token key atrule">uses</span><span class="token punctuation">:</span> juliangruber/read<span class="token punctuation">-</span>file<span class="token punctuation">-</span>action@v1
         <span class="token key atrule">with</span><span class="token punctuation">:</span>
           <span class="token key atrule">path</span><span class="token punctuation">:</span> ./public/gatsby<span class="token punctuation">-</span>posts.json</code></pre></div>
-<h5>其次是获取此次数据变更的内容,得到的结果为file_changes.outputs:{files_modified,files_added,files_removed}</h5>
+<h4>其次是获取此次数据变更的内容,得到的结果为file_changes.outputs:{files_modified,files_added,files_removed}</h4>
 <div class="gatsby-highlight" data-language="yml"><pre class="language-yml"><code class="language-yml">      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Get commit changes
         <span class="token key atrule">id</span><span class="token punctuation">:</span> file_changes
         <span class="token key atrule">uses</span><span class="token punctuation">:</span> trilom/file<span class="token punctuation">-</span>changes<span class="token punctuation">-</span>action@v1.2.3
         <span class="token key atrule">with</span><span class="token punctuation">:</span>
           <span class="token key atrule">githubRepo</span><span class="token punctuation">:</span> liweili50/liweili50.github.io</code></pre></div>
-<h5>最终就是把数据发送到指定的服务器接口</h5>
+<h4>最终就是把数据发送到指定的服务器接口</h4>
 <div class="gatsby-highlight" data-language="yml"><pre class="language-yml"><code class="language-yml">      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Make a HTTP Request
         <span class="token key atrule">uses</span><span class="token punctuation">:</span> actionsflow/axios@v1
         <span class="token key atrule">with</span><span class="token punctuation">:</span>
