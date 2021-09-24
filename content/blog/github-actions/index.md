@@ -18,37 +18,37 @@ description: "最近重新鼓捣 Gatsby Blog，翻看它了文档，发现了它
 #### 首先第一步是读取json数据，输出结果为 package.outputs.content
 
 ```yml
-    - name: Read json file
-        id: package
-        uses: juliangruber/read-file-action@v1
-        with:
-          path: ./public/gatsby-posts.json
+- name: Read json file
+    id: package
+    uses: juliangruber/read-file-action@v1
+    with:
+      path: ./public/gatsby-posts.json
 ```
 
 #### 其次是获取此次数据变更的内容,得到的结果为file_changes.outputs:{files_modified,files_added,files_removed}
 
 ```yml
-      - name: Get commit changes
-        id: file_changes
-        uses: trilom/file-changes-action@v1.2.3
-        with:
-          githubRepo: liweili50/liweili50.github.io
+- name: Get commit changes
+  id: file_changes
+  uses: trilom/file-changes-action@v1.2.3
+  with:
+    githubRepo: liweili50/liweili50.github.io
 ```
 #### 最终就是把数据发送到指定的服务器接口
 
 ```yml
-      - name: Make a HTTP Request
-        uses: actionsflow/axios@v1
-        with:
-          url: ${{ secrets.WEBHOOK_URL }}
-          method: POST
-          body: |
-            {
-              "modified":${{ steps.file_changes.outputs.files_modified }},
-              "added":${{ steps.file_changes.outputs.files_added}},
-              "removed":${{ steps.file_changes.outputs.files_removed}},
-              "posts":${{ steps.package.outputs.content }}
-            }
+- name: Make a HTTP Request
+  uses: actionsflow/axios@v1
+  with:
+    url: ${{ secrets.WEBHOOK_URL }}
+    method: POST
+    body: |
+      {
+        "modified":${{ steps.file_changes.outputs.files_modified }},
+        "added":${{ steps.file_changes.outputs.files_added}},
+        "removed":${{ steps.file_changes.outputs.files_removed}},
+        "posts":${{ steps.package.outputs.content }}
+      }
 ```
 
 这样就完成了在每次提交markdown文件后就会把Gatsby生成的数据以及变更的文件内容发送到服务器，服务端就可以按需更新数据库。
