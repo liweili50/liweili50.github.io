@@ -46,6 +46,7 @@ HTTP 缓存分为强制缓存和协商缓存，一个最重要的区别是强制
 nginx 配置如下：
 
 ```nginx
+server {
   location / {
     add_header Cache-Control no-cache;
     try_files $uri $uri/ /index.html;
@@ -54,4 +55,9 @@ nginx 配置如下：
   location ~* \.(css|js|png|jpg|jpeg|gif|gz|svg|mp4|ogg|ogv|webm|htc|xml|woff)$ {
     add_header Cache-Control "public,max-age=7*24*3600";
   }
+}
+
 ```
+
+实际效果如下图：
+![截图](./screenshot.png)
