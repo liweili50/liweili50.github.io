@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Blog]]></title><description><![CDATA[A starter blog demonstrating what Gatsby can do.]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 06 Dec 2021 08:44:41 GMT</lastBuildDate><item><title><![CDATA[HTTP相关的性能优化]]></title><description><![CDATA[前端代码打包之后的静态资源要部署在服务器上，这时候就要做对这些静态资源做一些运维配置来做性能优化，其中，gzip 和设置 HTTP 缓存是必不可少的。gzip 可以极大的减少数据传输时的体积，合理的缓存机制则会让浏览器减少对资源的请求。 使用 nginx 开启 gzip…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/http-cache/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/http-cache/</guid><pubDate>Mon, 06 Dec 2021 18:37:40 GMT</pubDate><content:encoded>&lt;p&gt;前端代码打包之后的静态资源要部署在服务器上，这时候就要做对这些静态资源做一些运维配置来做性能优化，其中，gzip 和设置 HTTP 缓存是必不可少的。gzip 可以极大的减少数据传输时的体积，合理的缓存机制则会让浏览器减少对资源的请求。&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Blog]]></title><description><![CDATA[A starter blog demonstrating what Gatsby can do.]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 06 Dec 2021 08:58:22 GMT</lastBuildDate><item><title><![CDATA[HTTP相关的性能优化]]></title><description><![CDATA[前端代码打包之后的静态资源要部署在服务器上，这时候就要做对这些静态资源做一些运维配置来做性能优化，其中，gzip 和设置 HTTP 缓存是必不可少的。gzip 可以极大的减少数据传输时的体积，合理的缓存机制则会让浏览器减少对资源的请求。 使用 nginx 开启 gzip…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/http-cache/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/http-cache/</guid><pubDate>Mon, 06 Dec 2021 18:37:40 GMT</pubDate><content:encoded>&lt;p&gt;前端代码打包之后的静态资源要部署在服务器上，这时候就要做对这些静态资源做一些运维配置来做性能优化，其中，gzip 和设置 HTTP 缓存是必不可少的。gzip 可以极大的减少数据传输时的体积，合理的缓存机制则会让浏览器减少对资源的请求。&lt;/p&gt;
 &lt;h2&gt;使用 nginx 开启 gzip&lt;/h2&gt;
 &lt;p&gt;nginx 默认是不开启 gizp 的，在 Linux 系统上打开 &lt;em&gt;/etc/nginx/nginx.config&lt;/em&gt; 文件，在 HTTP 部分可以看到如下配置：&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# gzip_vary on;&lt;/span&gt;
@@ -22,14 +22,50 @@ HTTP 缓存分为强制缓存和协商缓存，一个最重要的区别是强制
 &lt;p&gt;结合当前通常使用 webpack 作为构建单页面的基础工具，可以每次构建时都对打包文件重新命名，让强制缓存也能在文件被修改后由于文件名的变更而失效。&lt;/p&gt;
 &lt;p&gt;所以通过设置 html 为不缓存，html 引用资源都设置为强制缓存，不过每次构建都会对引用的资源重新 hash 命名，就解决了无法及时得知资源更新的问题。&lt;/p&gt;
 &lt;p&gt;nginx 配置如下：&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;  &lt;span class=&quot;token directive&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; /&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token directive&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;server&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token directive&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; /&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;token directive&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;add_header&lt;/span&gt; Cache-Control no-cache&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;token directive&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;try_files&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$uri&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$uri&lt;/span&gt;/ /index.html&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 
   &lt;span class=&quot;token directive&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; ~* \.(css|js|png|jpg|jpeg|gif|gz|svg|mp4|ogg|ogv|webm|htc|xml|woff)$&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;token directive&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;add_header&lt;/span&gt; Cache-Control &lt;span class=&quot;token string&quot;&gt;&quot;public,max-age=7*24*3600&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[滑动窗口算法]]></title><description><![CDATA[算法核心思路 用左右指针维护一个窗口（连续的子数组/子串），根据题目在遍历数组或者字符串的时候动态调整两个指针（一般都是++），遇到可行解就进行记录。 leetcode 算法：求无重复字符的最长子串 给定一个字符串 s…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/sliding-window/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/sliding-window/</guid><pubDate>Fri, 22 Oct 2021 13:37:40 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;算法核心思路&lt;/strong&gt;&lt;/p&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;实际效果如下图：
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/92ef3076c94020afc31e8168a49fa642/0f7d5/screenshot.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 63.291139240506325%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACS0lEQVQ4yz1T2XLbMAzU//9ZH5tMO9M0sRuL4n2KFEnJdrZDOMkDhpAA7mIBcHo9nfDOBP5dGC5MYJEaXBpwqcGEwSw0/Vs+TyYUhLZQ1kMaR6aMx/ticGEck+ICOmS4EKFGojbgQoFxidNFYBYGUmkIqWF9gHGecn1M3za+tYuQ2mBSSlNSTCsWIcCFpMAiJPnGOShrIYyBNBbaOXCtIYYZDeMdEdqBsWZMfd/RW8f1ekXvHff7HbV19P1A6w3H/Qq1eawtw9WEcm2ILX+f9bbT3Y+PD+z7jinEhP04CORhDVvriCkj54w1F6SckWIiv5QNrXXkXLBtleSO/3SvNkzzrGCMQUoram2otaL1jhAiUkqIMYJzDm0sYkoE6JyD8x4hRjBrkfKGOsiHZMEY/r6+QWuN4zjIhoSSC1qtVKX3nkjXdUVrFYJzrGmlWBhg/cBRK0opmNhlxul0hlKKwEYfBmBeM7ZtQ1oTQgiQUmKeZ7rEF04KBkFaM9LWsdftAWgUB1sW6tEAGoADeATrZ4VpXWGtJeDb7QZnHbVjEA4LpaFvG9acMUklIIWE0poa+yV5AI3kAVy2Qn1jjBHJAB+9pVjZELaG29iUtmM6nc84/3uHcx7H9YrjeEhONIBCssZEhZB4enomojgW23v4EKiqXDue5Rt+LL8wLcuCZeGIMX3KqLSLXxWOwex7h7UGf15eSMUYzAAcZIO09St+ilf8NmdMM2O0El9mrIMfT8kY8qWNWFQA1wHWekT9WDEfI72uOAaTC/mlVPwHqOXcMrq2RZkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;截图&quot;
+        title=&quot;截图&quot;
+        src=&quot;/static/92ef3076c94020afc31e8168a49fa642/f058b/screenshot.png&quot;
+        srcset=&quot;/static/92ef3076c94020afc31e8168a49fa642/c26ae/screenshot.png 158w,
+/static/92ef3076c94020afc31e8168a49fa642/6bdcf/screenshot.png 315w,
+/static/92ef3076c94020afc31e8168a49fa642/f058b/screenshot.png 630w,
+/static/92ef3076c94020afc31e8168a49fa642/40601/screenshot.png 945w,
+/static/92ef3076c94020afc31e8168a49fa642/0f7d5/screenshot.png 993w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[滑动窗口算法]]></title><description><![CDATA[算法核心思路 用左右指针维护一个窗口（连续的子数组/子串），根据题目在遍历数组或者字符串的时候动态调整两个指针（一般都是++），遇到可行解就进行记录。 leetcode 算法：求无重复字符的最长子串 给定一个字符串 s…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/sliding-window/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/sliding-window/</guid><pubDate>Fri, 22 Oct 2021 13:37:40 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;算法核心思路&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;用左右指针维护一个窗口（连续的子数组/子串），根据题目在遍历数组或者字符串的时候动态调整两个指针（一般都是++），遇到可行解就进行记录。&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; left &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; right &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
