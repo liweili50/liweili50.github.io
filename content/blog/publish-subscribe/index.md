@@ -33,7 +33,7 @@ class EventListener {
     let listener = {
       name,
       fn,
-       isOnce: true,
+      isOnce: true,
     };
     this.listeners.push(listener);
     return listener;
