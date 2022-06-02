@@ -1,6 +1,6 @@
 ---
 title: "实现一个函数可以转换JSON成字符串"
-date: "2022-06-02T22:53:33.508Z"
+date: "2022-06-02 22:53:33"
 description: "实现一个函数可以转换JSON成字符串，类似JSON.stringify"
 tags:
   - 面试
