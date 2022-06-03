@@ -20,6 +20,7 @@ const jsonBody = {
       e: [44, 55, 66],
     },
     f: [],
+    g:[{a:9}]
     v: undefined,
   },
 };
@@ -37,9 +38,12 @@ const jsonToString = function (jsonBody) {
         }
       })
       .filter((item) => item !== "");
-    str = "{" + arr.join(",") + "}";
+    str = `{${arr.join(",")}}`;
   } else if (Object.prototype.toString.call(jsonBody) === "[object Array]") {
-    return `[${jsonBody}]`;
+    let arr = jsonBody.map((item) => {
+      return `${jsonToString(item)}`;
+    });
+    str = `[${arr.join(",")}]`;
   } else if (
     typeof jsonBody === "undefined" ||
     typeof jsonBody === "function"
